@@ -11,12 +11,12 @@
 		
 		<!-- MATERIAL DESIGN ICONIC FONT -->
 		
-		<link rel="stylesheet" href="{% static 'formularioPersona/fonts/material-design-iconic-font/css/material-design-iconic-font.css' %}">
+		<link rel="stylesheet" href="{% static '/home/franco/renta/static_root/formularioPersona/fonts/material-design-iconic-font/css/material-design-iconic-font.css' %}">
 
 		
 
 		<!-- STYLE CSS -->
-		<link rel="stylesheet" href="{% static 'formularioPersona/css/style.css' %}">
+		<link rel="stylesheet" href="{% static '/home/franco/renta/static_root/formularioPersona/css/style.css' %}">
 		
 	</head>
 	<body>
@@ -25,7 +25,7 @@
 		<div class="wrapper">
 			<div class="image-holder">
 				
-				<img src="{% static 'formularioPersona/images/form-wizard.png' %}"  alt="">
+				<img src="{% static '/home/franco/renta/static_root/formularioPersona/images/form-wizard.png' %}"  alt="">
 			</div>
 			<!-- agregado onsubmit 20/09-->
             <form  id="formulario" action="" method="post" onsubmit="return validar();">
@@ -50,7 +50,7 @@
 	                    	<div class="form-holder">
 								{% render_field form.nombre class="form-control" %}
 								{% for error in form.nombre.errors %}
-									
+									<label for="">{{ error }}</label>
 								{% endfor %}
 	                    	</div>
 	                    </div>	
@@ -59,7 +59,6 @@
 	                    		<h4>Email</h4>
 	                    	</label>
 	                    	<div class="form-holder">
-
 								{% render_field form.email class="form-control" %}
 								<h5>Enviaremos el informe a este correo, asegúrate de escribirlo correctamente.</h5>
 								{% for error in form.email.errors %}
@@ -121,7 +120,7 @@
 	                    		<h4>Tamaño de la Empresa</h4>
 	                    	</label>
 	                    	<div class="form-holder">
-								{% render_field form.tamano_empresa class="form-control" id="tamano_empresa" name="" type="text"  placeholder="seleccionar" %}
+								{% render_field form.tamano_empresa class="form-control" id="" name="" type="text"  placeholder="seleccionar" %}
 
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
@@ -131,7 +130,7 @@
 	                    		<h4>País</h4>
 	                    	</label>
 	                    	<div class="form-holder">
-									{% render_field form.pais class="form-control" id="pais"  %}
+									{% render_field form.pais class="form-control"  %}
 	
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
@@ -141,7 +140,7 @@
 	                    		<h4>Edad</h4>
 	                    	</label>
 	                    	<div class="form-holder">
-									{% render_field form.edad class="form-control" name="" id="edad"  %}
+									{% render_field form.edad class="form-control" name="" id=""  %}
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
 						</div>	
@@ -151,7 +150,7 @@
 	                    	</label>
 	                    	<div class="form-holder">
 
-	                    		{% render_field form.estudios class="form-control" name="" id="estudios"  %}
+	                    		{% render_field form.estudios class="form-control" name="" id=""  %}
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
 						</div>	
@@ -161,7 +160,7 @@
 	                    	</label>
 	                    	<div class="form-holder">
 
-	                    		{% render_field form.genero class="form-control" name="" id="genero"  %}
+	                    		{% render_field form.genero class="form-control" name="" id=""  %}
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
 						</div>	
@@ -171,7 +170,7 @@
 	                    		<h4>Nivel de Inglés hablado</h4>
 	                    	</label>
 	                    	<div class="form-holder">
-	                    		{% render_field form.ingles_hablado class="form-control" name="" id="ingles_hablado"  %}
+	                    		{% render_field form.ingles_hablado class="form-control" name="" id=""  %}
 								<i class="zmdi zmdi-caret-down"></i>
 							</div>
 
@@ -190,7 +189,7 @@
 	                    		<h4>Nivel de Inglés escrito</h4>
 	                    	</label>
 	                    	<div class="form-holder">
-	                    		{% render_field form.ingles_escrito class="form-control" name="" id="ingles_escrito"  %}
+	                    		{% render_field form.ingles_escrito class="form-control" name="" id=""  %}
 								<i class="zmdi zmdi-caret-down"></i>
 							</div>
 
@@ -200,7 +199,7 @@
 	                    		<h4>Actividad o giro de su último empleador</h4>
 	                    	</label>
 	                    	<div class="form-holder">
-	                    		{% render_field form.actividad class="form-control" name="" id="actividad"  %}
+	                    		{% render_field form.actividad class="form-control" name="" id=""  %}
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
 	                    </div>	
@@ -211,7 +210,7 @@
 	                    		 <h4>¿Cómo está contratado?</h4>
 	                    	</label>
 	                    	<div class="form-holder">
-	                    		{% render_field form.contrato class="form-control" name="" id="contrato"  %}
+	                    		{% render_field form.contrato class="form-control" name="" id=""  %}
 								</select>
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
@@ -222,7 +221,7 @@
 	                    		 <h4>Indique cuál fue su último cargo (indique el que mas se ajusta)</h4>
 	                    	</label>
 	                    	<div class="form-holder">
-	                    		{% render_field form.cargo class="form-control" name="" id="cargo"  %}
+	                    		{% render_field form.cargo class="form-control" name="" id=""  %}
 								</select>
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
@@ -232,7 +231,7 @@
 	                    		<h4>¿Cuántos años de experiencia tiene en el cargo?</h4>
 	                    	</label>
 	                    	<div class="form-holder">
-	                    		{% render_field form.experiencia class="form-control" name="" id="experiencia"  %}
+	                    		{% render_field form.experiencia class="form-control" name="" id=""  %}
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
 						</div>	
@@ -242,7 +241,7 @@
 	                    	</label>
 	                    	<div class="form-holder">
 							
-								{% render_field form.rentaLiquida class="form-control" placeholder="$" onkeypress="return numbersonly(event)"onkeypress="return event.charCode >= 48" min="1" %}
+								{% render_field form.rentaLiquida class="form-control" placeholder="$" onkeypress="return numbersonly(event)" %}
 								{% for error in form.rentaLiquida.errors %}
 									<label for="">{{ error }}</label>
 								{% endfor %}
@@ -255,7 +254,7 @@
 	                    	</label>
 	                    	<div class="form-holder">
 
-									{% render_field form.rentaBono name="" id="rentas_brutas" class="form-control"  %}
+									{% render_field form.rentaBono name="" id="" class="form-control"  %}
 		
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
@@ -266,7 +265,7 @@
 	                    	</label>
 	                    	<div class="form-holder">
 	                    		
-									{% render_field form.duracionTrabajo name="" id="duracionTrabajo" class="form-control"  %}
+									{% render_field form.duracionTrabajo name="" id="" class="form-control"  %}
 
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
@@ -317,13 +316,13 @@
 		</div>
 		
 		<!-- JS -->
-		<script src="{% static 'formularioPersona/js/jquery-3.3.1.min.js' %}"></script>
+		<script src="{% static '/home/franco/renta/static_root/formularioPersona/js/jquery-3.3.1.min.js' %}"></script>
 		
 		<!-- JQUERY STEP -->
-		<script src="{% static 'formularioPersona/js/jquery.steps.js' %}"></script>
+		<script src="{% static '/home/franco/renta/static_root/formularioPersona/js/jquery.steps.js' %}"></script>
 
 		<!-- MAIN JS -->
-		<script src="{% static 'formularioPersona/js/main.js' %}"></script>
+		<script src="{% static '/home/franco/renta/static_root/formularioPersona/js/main.js' %}"></script>
 		<!-- SWEET ALERT -->
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <!-- Template created and distributed by Colorlib -->

@@ -6,16 +6,16 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 
-# Quick-start development settings - unsuitable for pzroduction
+# Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'u0_dok2tla-@!sqyhhwv2gu+!n=2iv%0uz7&i7ox1hp4wj^8)j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['']
 
 
 # Application definition
@@ -66,7 +66,6 @@ WSGI_APPLICATION = 'estudioRemuneraciones.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -119,6 +118,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static'),
 ]
+STATIC_ROOT = os.path.join(BASE_DIR,'/home/franco/renta/static_root')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 
 
 # CONIFIG EMAIL BACKEND
@@ -127,5 +128,5 @@ STATICFILES_DIRS = [
 EMAIL_HOST = 'smtp.googlemail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'francojof2@gmail.com'
-EMAIL_HOST_PASSWORD = 'hurtmemoreE5991'
+EMAIL_HOST_PASSWORD = 'waripolo333'
 EMAIL_USE_TLS = True
