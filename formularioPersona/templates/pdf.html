@@ -1,0 +1,97 @@
+﻿{% load static %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>renta</title>
+        <style>
+            @font-face {font-family: oswald; src: url(
+            '/static/formularioPersona/fonts/oswald/oswald.regular.ttf')}
+            @page {
+                background: url(https://i.ibb.co/98HwqNJ/background1.jpg);
+                background-repeat: no-repeat ;
+                
+            }
+
+            @page p2 {
+                background: url(https://i.ibb.co/98b8Zpm/background2.jpg);
+                background-repeat: no-repeat;
+
+                
+            }
+
+            @page p3 {
+                background-image: url(https://i.ibb.co/9GYMcyx/background3.jpg);
+                background-repeat: no-repeat;
+    
+                  
+            }
+
+            @page p4 {
+                background-image: url(https://i.ibb.co/TgHpLKK/background4.jpg);
+                background-repeat: no-repeat;
+
+                .letra { 
+                    top: 700px;
+                    left: 420px;
+                    
+              
+                }
+                /* size: a4 landscape; */
+              
+            }
+
+            @page p5 {
+                background-image: url(https://i.ibb.co/6yJh6W6/pdf-a-testear-2-1.jpg);
+                background-repeat: no-repeat;
+                 
+            }
+            body {
+                font-size: 25px;
+                color: blue;
+                font-family: Verdana;
+            }   
+
+        </style>
+    </head>
+    <body>
+
+        <p>
+        Nombre {{nombre}}
+        <p>
+        <p>
+        edad {{edad}}
+        <p>
+        <p>
+        pais {{pais}}
+        <p>
+        fechass {{fecha}}
+
+        <pdf:nextpage name="p2" />
+
+        <p>
+        estudios {{estudios}}
+        <p>
+        <p>
+        genero {{genero}}
+        <p>
+        <p>
+        cargo {{cargo}}
+        <p>
+
+        <pdf:nextpage name="p3" />
+
+        <p>
+        Hello <strong>lala</strong>
+        <p>
+
+        <pdf:nextpage name="p4" />
+
+        <div ><strong id="letra"   >blablabla</div>
+
+        <pdf:nextpage name="p5" />
+        <p>la</p>
+
+    </body>
+</html>

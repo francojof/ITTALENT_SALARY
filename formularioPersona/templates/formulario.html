@@ -1,0 +1,331 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<meta charset="utf-8">
+		<title>estudio renta</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		
+		<link rel="stylesheet" href="{% static 'formularioPersona/fonts/material-design-iconic-font/css/material-design-iconic-font.css' %}">
+
+		
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="{% static 'formularioPersona/css/style.css' %}">
+		
+	</head>
+	<body>
+		
+		
+		<div class="wrapper">
+			<div class="image-holder">
+				
+				<img src="{% static 'formularioPersona/images/form-wizard.png' %}"  alt="">
+			</div>
+			<!-- agregado onsubmit 20/09-->
+            <form  id="formulario" action="" method="post" onsubmit="return validar();">
+				{% csrf_token %}
+				
+				
+				
+				
+            	<div class="form-header">
+            		<a href="#">IT-TALENT SALARY</a>
+					<h3>Recibe tu estudio de Renta Gratis</h3>
+					
+            	</div>
+            	<div id="wizard">
+            		<!-- SECTION 1 -->
+	                <h4></h4>
+	                <section>
+						<div class="form-row">
+	                    	<label for="">
+	                    		 <h4>Nombre y Apellido</h4>
+	                    	</label>
+	                    	<div class="form-holder">
+								{% render_field form.nombre class="form-control" %}
+								{% for error in form.nombre.errors %}
+									
+								{% endfor %}
+	                    	</div>
+	                    </div>	
+						<div class="form-row">
+	                    	<label for="">
+	                    		<h4>Email</h4>
+	                    	</label>
+	                    	<div class="form-holder">
+
+								{% render_field form.email class="form-control" %}
+								<h5>Enviaremos el informe a este correo, asegúrate de escribirlo correctamente.</h5>
+								{% for error in form.email.errors %}
+									<label for="">{{ error }}</label>
+								{% endfor %}
+
+								{% if messages %}
+								
+								{% for message in messages %}
+								 {% if message.tags == "error" %}  <script>{ 
+									Swal.fire({
+										title:"Alerta",
+										text:"{{ message }}",
+										icon:"warning",
+										confirmButtonText:"Aceptar",
+										timer: 5000,
+										timerProgressBar: true,
+										allowOutssideClick: true,
+										allowEscapeKey: true,
+										allowEnterkey: true,
+							
+									});};
+									</script>
+									 {% endif %}
+									 {% if message.tags == "success" %}¨
+									 <script>{ 
+										Swal.fire({
+											title:"Muchas gracias!",
+											text:"{{ message }}",
+											icon:"success",
+											confirmButtonText:"Aceptar",
+											timer: 10000,
+											timerProgressBar: true,
+											allowOutssideClick: true,
+											allowEscapeKey: true,
+											allowEnterkey: true,
+								
+										}
+										
+										
+										
+										
+										).then(function(){
+											window.location.href = "http://www.it-talent.cl";
+											console.log('pinchaste el success button');
+										});};
+
+									 </script>
+									 {% endif %}
+								
+								{% endfor %}
+						
+							{% endif %}
+								
+	                    	</div>
+	                    </div>	
+	                    <div class="form-row">
+	                    	<label for="">
+	                    		<h4>Tamaño de la Empresa</h4>
+	                    	</label>
+	                    	<div class="form-holder">
+								{% render_field form.tamano_empresa class="form-control" id="tamano_empresa" name="" type="text"  placeholder="seleccionar" %}
+
+								<i class="zmdi zmdi-caret-down"></i>
+	                    	</div>
+	                    </div>	
+	                    <div class="form-row">
+	                    	<label for="">
+	                    		<h4>País</h4>
+	                    	</label>
+	                    	<div class="form-holder">
+									{% render_field form.pais class="form-control" id="pais"  %}
+	
+								<i class="zmdi zmdi-caret-down"></i>
+	                    	</div>
+						</div>	
+						<div class="form-row">
+	                    	<label for="">
+	                    		<h4>Edad</h4>
+	                    	</label>
+	                    	<div class="form-holder">
+									{% render_field form.edad class="form-control" name="" id="edad"  %}
+								<i class="zmdi zmdi-caret-down"></i>
+	                    	</div>
+						</div>	
+						<div class="form-row">
+	                    	<label for="">
+	                    		<h4>Estudios</h4>
+	                    	</label>
+	                    	<div class="form-holder">
+
+	                    		{% render_field form.estudios class="form-control" name="" id="estudios"  %}
+								<i class="zmdi zmdi-caret-down"></i>
+	                    	</div>
+						</div>	
+						<div class="form-row">
+	                    	<label for="">
+	                    		<h4>Género</h4>
+	                    	</label>
+	                    	<div class="form-holder">
+
+	                    		{% render_field form.genero class="form-control" name="" id="genero"  %}
+								<i class="zmdi zmdi-caret-down"></i>
+	                    	</div>
+						</div>	
+						
+	                    <div class="form-row">
+	                    	<label for="">
+	                    		<h4>Nivel de Inglés hablado</h4>
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		{% render_field form.ingles_hablado class="form-control" name="" id="ingles_hablado"  %}
+								<i class="zmdi zmdi-caret-down"></i>
+							</div>
+
+						</div>
+
+
+	
+	
+	                </section>
+	                
+					<!-- SECTION 2 -->
+	                <h4></h4>
+	                <section>
+						<div class="form-row">
+	                    	<label for="">
+	                    		<h4>Nivel de Inglés escrito</h4>
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		{% render_field form.ingles_escrito class="form-control" name="" id="ingles_escrito"  %}
+								<i class="zmdi zmdi-caret-down"></i>
+							</div>
+
+						</div>
+						<div class="form-row">
+	                    	<label for="">
+	                    		<h4>Actividad o giro de su último empleador</h4>
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		{% render_field form.actividad class="form-control" name="" id="actividad"  %}
+								<i class="zmdi zmdi-caret-down"></i>
+	                    	</div>
+	                    </div>	
+
+
+						<div class="form-row">
+	                    	<label for="">
+	                    		 <h4>¿Cómo está contratado?</h4>
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		{% render_field form.contrato class="form-control" name="" id="contrato"  %}
+								</select>
+								<i class="zmdi zmdi-caret-down"></i>
+	                    	</div>
+	                    </div>	
+						
+						<div class="form-row">
+	                    	<label for="">
+	                    		 <h4>Indique cuál fue su último cargo (indique el que mas se ajusta)</h4>
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		{% render_field form.cargo class="form-control" name="" id="cargo"  %}
+								</select>
+								<i class="zmdi zmdi-caret-down"></i>
+	                    	</div>
+						</div>	
+						<div class="form-row">
+	                    	<label for="">
+	                    		<h4>¿Cuántos años de experiencia tiene en el cargo?</h4>
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		{% render_field form.experiencia class="form-control" name="" id="experiencia"  %}
+								<i class="zmdi zmdi-caret-down"></i>
+	                    	</div>
+						</div>	
+						<div class="form-row">
+	                    	<label for="">
+	                    		<h4>Indique su renta líquida mensual (sin bonos en moneda de su país)</h4>
+	                    	</label>
+	                    	<div class="form-holder">
+							
+								{% render_field form.rentaLiquida class="form-control" placeholder="$" onkeypress="return numbersonly(event)"onkeypress="return event.charCode >= 48" min="1" %}
+								{% for error in form.rentaLiquida.errors %}
+									<label for="">{{ error }}</label>
+								{% endfor %}
+
+	                    	</div>
+						</div>	
+						<div class="form-row">
+	                    	<label for="">
+	                    		 <h4>Aproximadamente, ¿Cuántas rentas brutas recibe de bono a fin de año cumpliendo el 100% de sus metas?</h4>
+	                    	</label>
+	                    	<div class="form-holder">
+
+									{% render_field form.rentaBono name="" id="rentas_brutas" class="form-control"  %}
+		
+								<i class="zmdi zmdi-caret-down"></i>
+	                    	</div>
+						</div>	
+						<div class="form-row">
+	                    	<label for="">
+	                    		 <h4>¿Cuánto tiempo lleva en su actual trabajo?</h4>
+	                    	</label>
+	                    	<div class="form-holder">
+	                    		
+									{% render_field form.duracionTrabajo name="" id="duracionTrabajo" class="form-control"  %}
+
+								<i class="zmdi zmdi-caret-down"></i>
+	                    	</div>
+						</div>	
+	                </section>
+
+	                <!-- SECTION 3 -->
+	                <h4></h4>
+	                <section>													
+						<div class="form-row">
+							<label for="">
+								<h4>¿Qué beneficios otorga su actual empleador?</h4>
+								
+							</label>
+							<div class="form-holder">
+
+								{{form.BeneficiosEmpleador}}
+									
+								
+							</div>
+						</div>
+							
+						<div class="form-row">
+							<label for="">
+							<h4>¿Qué factores considera usted al cambiarse de trabajo?</h4>
+							</label>
+							<div class="form-holder">
+
+								{{form.FactoresCambioEmpleo}}
+									
+							
+							</div>
+							
+						</div>	
+
+						
+
+						
+					  </div>
+					
+							
+					</section>
+					<!-- <div class="loader"></div> -->
+
+					
+            	</div>
+            </form>
+		</div>
+		
+		<!-- JS -->
+		<script src="{% static 'formularioPersona/js/jquery-3.3.1.min.js' %}"></script>
+		
+		<!-- JQUERY STEP -->
+		<script src="{% static 'formularioPersona/js/jquery.steps.js' %}"></script>
+
+		<!-- MAIN JS -->
+		<script src="{% static 'formularioPersona/js/main.js' %}"></script>
+		<!-- SWEET ALERT -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<!-- Template created and distributed by Colorlib -->
+</body>
+</html>
