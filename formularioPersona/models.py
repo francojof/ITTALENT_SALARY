@@ -324,7 +324,6 @@ class Persona(models.Model):
         
     ]
     BENEFICIOS_CHOICES=(
-        (SELECCIONAR ,'Seleccionar'),
         (ALIMENTACION, 'Alimentación'),
         (MOVILIZACION, 'Movilización'),
         (PLAN_SALUD  , 'Plan de Salud'),
@@ -342,7 +341,6 @@ class Persona(models.Model):
     )
 
     FACTORES_CAMBIO_CHOICES = [
-        (SELECCIONAR ,'Seleccionar'),
         (BENEFICIOS_NO_MONETARIOS,'Beneficios no monetarios'),
         (APRENDIZAJE, 'Aprendizaje'),
         (DESARROLLO_CARRERA, 'Desarrollo de Carrera'),
