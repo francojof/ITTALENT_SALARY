@@ -33,33 +33,11 @@ function submitForm() {
 
  $(function(){
     $('formulario').on('submit', function(e){
-        alert("tranquilo mi rey");
+        
     });
 })
 
-function validar(){
-    var nombre,email,rentaLiquida;
-    /* console.log( $( this ).serialize() ); */
-    /* expresion= /\w+@\w+\.+[a-z]/; */
-    expresion=/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    expresionNombre= /^[a-zA-ZñÑ-áéíóúÄËÏÖÜÁÉÍÓÚ ]+$/i;
-    nombre = document.getElementById("id_nombre").value;
-    email  = document.getElementById("id_email").value;
-    empresa = document.getElementById("tamano_empresa").value;
-    pais = document.getElementById("pais").value;
-    edad = document.getElementById("edad").value;
-    estudios = document.getElementById("estudios").value;
-    genero = document.getElementById("genero").value;
-    ingles_hablado = document.getElementById("ingles_hablado").value;
-    ingles_escrito = document.getElementById("ingles_escrito").value;
-    actividad = document.getElementById("actividad").value;
-    contrato = document.getElementById("contrato").value;
-    cargo = document.getElementById("cargo").value;
-    experiencia = document.getElementById("experiencia").value;
-    rentas_brutas = document.getElementById("rentas_brutas").value;
-    duracionTrabajo = document.getElementById("duracionTrabajo").value;
 
-}
 
 
 
