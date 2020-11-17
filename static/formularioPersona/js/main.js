@@ -1,80 +1,167 @@
-//VARIABLE FORMULARIO COMPLETO
+
 var form = $("#formulario");
 
-/* const spinnerBox = document.getElementById("spinner-box")
-const dataBox    = document.getElementById("data-box")
-console.log(spinnerBox)
-console.log(dataBox) */
-//CODIGO ICONO CARGA FORMULARIO
-/* var spinner = $('#loader');
-var formData = form.serializeArray();
-formData = objectifyForm(formData);
-$(function() {
-  submitForm.submit(function(e) {
-    e.preventDefault();
-    spinner.show();
-    $.ajax({
-      url: 'formulario/',
-      data: formData,
-      method: 'post',
-      dataType: 'JSON'
-    }).done(function(resp) {
-      spinner.hide();
-      alert(resp.status);
-    });
-  });
-}); */
 
 function submitForm() {
-    /* $('body').append('<div id="loading">Loading...</div>') */
+  
     
     $("#formulario").submit();
  }
 
  $(function(){
     $('formulario').on('submit', function(e){
-        alert("tranquilo mi rey");
     });
 })
 
 function validar(){
     var nombre,email,rentaLiquida;
-    /* console.log( $( this ).serialize() ); */
-    /* expresion= /\w+@\w+\.+[a-z]/; */
+
     expresion=/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     expresionNombre= /^[a-zA-ZñÑ-áéíóúÄËÏÖÜÁÉÍÓÚ ]+$/i;
     nombre = document.getElementById("id_nombre").value;
     email  = document.getElementById("id_email").value;
-    empresa = document.getElementById("tamano_empresa").value;
-    pais = document.getElementById("pais").value;
-    edad = document.getElementById("edad").value;
-    estudios = document.getElementById("estudios").value;
-    genero = document.getElementById("genero").value;
-    ingles_hablado = document.getElementById("ingles_hablado").value;
-    ingles_escrito = document.getElementById("ingles_escrito").value;
-    actividad = document.getElementById("actividad").value;
-    contrato = document.getElementById("contrato").value;
-    cargo = document.getElementById("cargo").value;
-    experiencia = document.getElementById("experiencia").value;
-    rentas_brutas = document.getElementById("rentas_brutas").value;
-    duracionTrabajo = document.getElementById("duracionTrabajo").value;
+  
 
+    if (email ==="" && nombre ==="")
+    {
+        Swal.fire({
+            title:"Alerta",
+            text:"debes completar todos los campos antes de continuar",
+            icon:"warning",
+            confirmButtonText:"Aceptar",
+            timer: 5000,
+            timerProgressBar: true,
+            allowOutssideClick: true,
+            allowEscapeKey: true,
+            allowEnterkey: true,
+
+        });
+        return false;
+    }
+
+    else if (nombre ==="")
+    {
+        Swal.fire({
+            title:"Alerta",
+            text:"debes ingresar un nombre",
+            icon:"warning",
+            confirmButtonText:"Aceptar",
+            timer: 5000,
+            timerProgressBar: true,
+            allowOutssideClick: true,
+            allowEscapeKey: true,
+            allowEnterkey: true,
+
+        });
+        return false;
+    }
+    else if (nombre.length>50)
+    {
+        Swal.fire({
+            title:"Alerta",
+            text:"el nombre ingresado es muy largo",
+            icon:"warning",
+            confirmButtonText:"Aceptar",
+            timer: 5000,
+            timerProgressBar: true,
+            allowOutssideClick: true,
+            allowEscapeKey: true,
+            allowEnterkey: true,
+
+        });
+        return false;
+    }
+    else if (email.length>100)
+    {
+        Swal.fire({
+            title:"Alerta",
+            text:"el correo ingresado es muy largo",
+            icon:"warning",
+            confirmButtonText:"Aceptar",
+            timer: 5000,
+            timerProgressBar: true,
+            allowOutssideClick: true,
+            allowEscapeKey: true,
+            allowEnterkey: true,
+
+        });
+        return false;
+    }
+    else if (email ==="")
+    {
+        Swal.fire({
+            title:"Alerta",
+            text:"debes ingresar un email",
+            icon:"warning",
+            confirmButtonText:"Aceptar",
+            timer: 5000,
+            timerProgressBar: true,
+            allowOutssideClick: true,
+            allowEscapeKey: true,
+            allowEnterkey: true,
+
+        });
+        return false;
+    }
+    else if (!expresion.test(email) && !expresionNombre.test(nombre) )
+    {
+        Swal.fire({
+            title:"Alerta",
+            text:"datos ingresados invalidos",
+            icon:"warning",
+            confirmButtonText:"Aceptar",
+            timer: 5000,
+            timerProgressBar: true,
+            allowOutssideClick: true,
+            allowEscapeKey: true,
+            allowEnterkey: true,
+        });
+        return false;
+    }
+
+    else if (!expresion.test(email))
+    {
+        Swal.fire({
+            title:"Alerta",
+            text:"correo invalido",
+            icon:"warning",
+            confirmButtonText:"Aceptar",
+            timer: 5000,
+            timerProgressBar: true,
+            allowOutssideClick: true,
+            allowEscapeKey: true,
+            allowEnterkey: true,
+        });
+        return false;
+    }
+    else if (!expresionNombre.test(nombre))
+    {
+        Swal.fire({
+            title:"Alerta",
+            text:"su nombre no es valido",
+            icon:"warning",
+            confirmButtonText:"Aceptar",
+            timer: 5000,
+            timerProgressBar: true,
+            allowOutssideClick: true,
+            allowEscapeKey: true,
+            allowEnterkey: true,
+        });
+        return false;
+
+    }
+    
 }
 
-
-
-//VALIDAR NUMERO EN RENTA
 function numbersonly(e){
     var unicode=e.charCode? e.charCode : e.keyCode
-    if (unicode!=8){ //if the key isn't the backspace key (which we should allow)
-        if (unicode<48||unicode>57) //if not a number
-            return false //disable key press
+    if (unicode!=8){ 
+        if (unicode<48||unicode>57) 
+            return false 
     }
 }
 
 
-
-// JQUERY STEPS
 $(function(){
     
 	form.children("#wizard").steps({
@@ -123,6 +210,17 @@ $(function(){
     $('.backward').click(function(){
         $("#wizard").steps('previous');
     });
-
-
+    
 })
+
+
+
+
+
+
+
+
+
+
+
+
