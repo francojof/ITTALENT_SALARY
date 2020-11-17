@@ -4,7 +4,6 @@ var form = $("#formulario");
 
 function submitForm() {
   
-    
     $("#formulario").submit();
  }
 
