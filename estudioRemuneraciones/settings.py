@@ -72,8 +72,8 @@ DATABASES = {
         'NAME': 'estudiorenta',
         'USER':'franco',
         'PASSWORD':'dummyPassworddumy420last',
-        'HOST':'127.0.0.1',   
-        'DATABASE_PORT':'5432', 
+        'HOST':'localhost',   
+        'PORT':'', 
         }
     }
 
