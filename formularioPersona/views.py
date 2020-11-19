@@ -164,8 +164,6 @@ def index(request):
                 elif(cargo=="Infraestructura / SysOps "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
                 elif(cargo=="Infraestructura / Administrador de sistemas "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
                 content = template.render(context1)
-                print("llego aca")
-                print(genero)
                 objEmail = EmailMultiAlternatives(
                 'Informe Estudio de Renta',
                 '',
