@@ -47,7 +47,7 @@ class FormularioP(forms.ModelForm):
         contrato = forms.CharField()
         cargo = forms.CharField()
         experiencia = forms.IntegerField()
-        rentaLiquida=forms.IntegerField()
+        rentaLiquida=forms.IntegerField(min_value=1)
         rentaBono=forms.FloatField()
         duracionTrabajo=forms.CharField()
         BeneficiosEmpleador=forms.MultipleChoiceField(default=0,blank=True)

@@ -273,7 +273,7 @@
 	                    	</label>
 	                    	<div class="form-holder">
 							
-								{% render_field form.rentaLiquida class="form-control" placeholder="$" onkeypress="return numbersonly(event)" %}
+								{% render_field form.rentaLiquida class="form-control" placeholder="$" onkeypress="return numbersonly(event)" min="1"%}
 								{% for error in form.rentaLiquida.errors %}
 								<label for="" style="color: red;">Seleccionar/indicar una renta valida</label>
 								{% endfor %}
