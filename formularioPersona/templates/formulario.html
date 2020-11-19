@@ -50,6 +50,7 @@
 	                    	<div class="form-holder">
 								{% render_field form.nombre class="form-control" %}
 								{% for error in form.nombre.errors %}
+								<label for="" style="color: red;">debe ingresar un nombre</label>
 								{% endfor %}
 	                    	</div>
 	                    </div>	
@@ -306,23 +307,15 @@
 					
 							
 					</section>
-					<!-- <div class="loader"></div> -->
+					
 
 					
             	</div>
             </form>
 		</div>
-		
-		<!-- JS -->
 		<script src="{% static '/formularioPersona/js/jquery-3.3.1.min.js' %}"></script>
-		
-		<!-- JQUERY STEP -->
 		<script src="{% static '/formularioPersona/js/jquery.steps.js' %}"></script>
-
-		<!-- MAIN JS -->
 		<script src="{% static '/formularioPersona/js/main.js' %}"></script>
-		<!-- SWEET ALERT -->
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-<!-- Template created and distributed by Colorlib -->
 </body>
 </html>
