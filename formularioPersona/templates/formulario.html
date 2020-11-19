@@ -120,7 +120,9 @@
 	                    	</label>
 	                    	<div class="form-holder">
 								{% render_field form.tamano_empresa class="form-control" id="" name="" type="text"  placeholder="seleccionar" %}
-
+								{% for error in form.tamano_empresa.errors %}
+								<label for="" style="color: red;">Seleccionar</label>
+								{% endfor %}
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
 	                    </div>	
@@ -130,6 +132,9 @@
 	                    	</label>
 	                    	<div class="form-holder">
 									{% render_field form.pais class="form-control"  %}
+									{% for error in form.pais.errors %}
+									<label for="" style="color: red;">Seleccionar</label>
+									{% endfor %}
 	
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
@@ -140,6 +145,9 @@
 	                    	</label>
 	                    	<div class="form-holder">
 									{% render_field form.edad class="form-control" name="" id=""  %}
+									{% for error in form.edad.errors %}
+									<label for="" style="color: red;">Seleccionar</label>
+									{% endfor %}
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
 						</div>	
@@ -149,7 +157,10 @@
 	                    	</label>
 	                    	<div class="form-holder">
 
-	                    		{% render_field form.estudios class="form-control" name="" id=""  %}
+								{% render_field form.estudios class="form-control" name="" id=""  %}
+								{% for error in form.estudios.errors %}
+								<label for="" style="color: red;">Seleccionar</label>
+								{% endfor %}
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
 						</div>	
@@ -159,7 +170,10 @@
 	                    	</label>
 	                    	<div class="form-holder">
 
-	                    		{% render_field form.genero class="form-control" name="" id=""  %}
+								{% render_field form.genero class="form-control" name="" id=""  %}
+								{% for error in form.genero.errors %}
+								<label for="" style="color: red;">Seleccionar</label>
+								{% endfor %}
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
 						</div>	
@@ -169,7 +183,10 @@
 	                    		<h4>Nivel de Inglés hablado</h4>
 	                    	</label>
 	                    	<div class="form-holder">
-	                    		{% render_field form.ingles_hablado class="form-control" name="" id=""  %}
+								{% render_field form.ingles_hablado class="form-control" name="" id=""  %}
+								{% for error in form.ingles_hablado.errors %}
+								<label for="" style="color: red;">Seleccionar</label>
+								{% endfor %}
 								<i class="zmdi zmdi-caret-down"></i>
 							</div>
 
@@ -188,7 +205,11 @@
 	                    		<h4>Nivel de Inglés escrito</h4>
 	                    	</label>
 	                    	<div class="form-holder">
-	                    		{% render_field form.ingles_escrito class="form-control" name="" id=""  %}
+								{% render_field form.ingles_escrito class="form-control" name="" id=""  %}
+								{% for error in form.ingles_escrito.errors %}
+								<label for="" style="color: red;">Seleccionar</label>
+								{% endfor %}
+							
 								<i class="zmdi zmdi-caret-down"></i>
 							</div>
 
@@ -198,7 +219,10 @@
 	                    		<h4>Actividad o giro de su último empleador</h4>
 	                    	</label>
 	                    	<div class="form-holder">
-	                    		{% render_field form.actividad class="form-control" name="" id=""  %}
+								{% render_field form.actividad class="form-control" name="" id=""  %}
+								{% for error in form.actividad.errors %}
+								<label for="" style="color: red;">Seleccionar</label>
+								{% endfor %}
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
 	                    </div>	
@@ -209,7 +233,10 @@
 	                    		 <h4>¿Cómo está contratado?</h4>
 	                    	</label>
 	                    	<div class="form-holder">
-	                    		{% render_field form.contrato class="form-control" name="" id=""  %}
+								{% render_field form.contrato class="form-control" name="" id=""  %}
+								{% for error in form.contrato.errors %}
+								<label for="" style="color: red;">Seleccionar</label>
+								{% endfor %}
 								</select>
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
@@ -220,7 +247,10 @@
 	                    		 <h4>Indique cuál fue su último cargo (indique el que mas se ajusta)</h4>
 	                    	</label>
 	                    	<div class="form-holder">
-	                    		{% render_field form.cargo class="form-control" name="" id=""  %}
+								{% render_field form.cargo class="form-control" name="" id=""  %}
+								{% for error in form.cargo.errors %}
+								<label for="" style="color: red;">Seleccionar</label>
+								{% endfor %}								
 								</select>
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
@@ -230,7 +260,10 @@
 	                    		<h4>¿Cuántos años de experiencia tiene en el cargo?</h4>
 	                    	</label>
 	                    	<div class="form-holder">
-	                    		{% render_field form.experiencia class="form-control" name="" id=""  %}
+								{% render_field form.experiencia class="form-control" name="" id=""  %}
+								{% for error in form.experiencia.errors %}
+								<label for="" style="color: red;">Seleccionar</label>
+								{% endfor %}
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
 						</div>	
@@ -242,7 +275,7 @@
 							
 								{% render_field form.rentaLiquida class="form-control" placeholder="$" onkeypress="return numbersonly(event)" %}
 								{% for error in form.rentaLiquida.errors %}
-									<label for="">{{ error }}</label>
+								<label for="" style="color: red;">Seleccionar/indicar una renta valida</label>
 								{% endfor %}
 
 	                    	</div>
@@ -254,6 +287,10 @@
 	                    	<div class="form-holder">
 
 									{% render_field form.rentaBono name="" id="" class="form-control"  %}
+									{% for error in form.rentaBono.errors %}
+									<label for="" style="color: red;">Seleccionar</label>
+									{% endfor %}
+									
 		
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
@@ -265,6 +302,9 @@
 	                    	<div class="form-holder">
 	                    		
 									{% render_field form.duracionTrabajo name="" id="" class="form-control"  %}
+									{% for error in form.duracionTrabajo.errors %}
+									<label for="" style="color: red;">Seleccionar</label>
+									{% endfor %}
 
 								<i class="zmdi zmdi-caret-down"></i>
 	                    	</div>
