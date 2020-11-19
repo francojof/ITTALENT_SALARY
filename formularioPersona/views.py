@@ -53,10 +53,6 @@ def index(request):
         BeneficiosEmpleador = request.POST.get('BeneficiosEmpleador')
         FactoresCambioEmpleo = request.POST.get('FactoresCambioEmpleo')
         template= get_template('correo.html')
-        if Persona.objects.filter(email=request.POST['email']).exists():
-            messages.error(request, 'Ya ha sido enviado un informe al correo ingresado')
-            context= {'form':form}
-            return render(request,'formulario.html',context)
         if(nombre==""):
             messages.error(request, 'Debe ingresar un nombre backend')
             context= {'form':form}
@@ -86,6 +82,10 @@ def index(request):
                     
                     context= {'form':form}
                     return render(request,'formulario.html',context)
+        if Persona.objects.filter(email=request.POST['email']).exists():
+            messages.error(request, 'Ya ha sido enviado un informe al correo ingresado')
+            context= {'form':form}
+            return render(request,'formulario.html',context)
         if form.is_valid():
             try:
                 context1 = {
