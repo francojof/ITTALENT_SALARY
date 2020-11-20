@@ -53,11 +53,11 @@ def index(request):
         BeneficiosEmpleador = request.POST.get('BeneficiosEmpleador')
         FactoresCambioEmpleo = request.POST.get('FactoresCambioEmpleo')
         template= get_template('correo.html')
+        
         if(nombre==""):
             messages.error(request, 'Debe ingresar un nombre backend')
             context= {'form':form}
             return render(request,'formulario.html',context)
-
         if(email==""):
             messages.error(request, 'Debe ingresar un email backend')
             context= {'form':form}
