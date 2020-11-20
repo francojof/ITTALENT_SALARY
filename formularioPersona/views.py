@@ -30,7 +30,7 @@ import re
 def index(request):
     form = FormularioP()
     if request.method == 'POST':
-
+        
         form=FormularioP(request.POST)
         date_joined = datetime.now()
         formatted_datetime = formats.date_format(date_joined, "SHORT_DATETIME_FORMAT")
@@ -55,23 +55,23 @@ def index(request):
         template= get_template('correo.html')
         
         if(nombre==""):
-            messages.error(request, 'Debe ingresar un nombre backend')
+            messages.error(request, 'Debe ingresar un nombre')
             context= {'form':form}
             return render(request,'formulario.html',context)
         if(email==""):
-            messages.error(request, 'Debe ingresar un email backend')
+            messages.error(request, 'Debe ingresar un email')
             context= {'form':form}
             return render(request,'formulario.html',context)
         if(es_correo_valido(email)==False):
-            messages.error(request, 'Correo Invalido lalala')
+            messages.error(request, 'Correo Invalido')
             context= {'form':form}
             return render(request,'formulario.html',context)
         if(len(nombre)>60):
-            messages.error(request, 'el nombre ingresado es muy largo backend')
+            messages.error(request, 'el nombre ingresado es muy largo ')
             context= {'form':form}
             return render(request,'formulario.html',context)
         if(len(email)>100):
-            messages.error(request, 'el nombre ingresado es muy largo backend')
+            messages.error(request, 'el email ingresado es muy largo ')
             context= {'form':form}
             return render(request,'formulario.html',context)
         if(tamano_empresa=='Seleccionar'or pais=='Seleccionar'or edad=='Seleccionar' or estudios=='Seleccionar' or 
