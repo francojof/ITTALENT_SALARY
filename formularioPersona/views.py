@@ -67,11 +67,11 @@ def index(request):
                 context= {'form':form}
                 return render(request,'formulario.html',context)
             if(len(nombre)>60):
-                messages.error(request, 'el nombre ingresado es muy largo ')
+                messages.error(request, 'El nombre ingresado es muy largo ')
                 context= {'form':form}
                 return render(request,'formulario.html',context)
             if(len(email)>100):
-                messages.error(request, 'el email ingresado es muy largo ')
+                messages.error(request, 'El email ingresado es muy largo ')
                 context= {'form':form}
                 return render(request,'formulario.html',context)
             if(tamano_empresa=='Seleccionar'or pais=='Seleccionar'or edad=='Seleccionar' or estudios=='Seleccionar' or 
@@ -83,7 +83,7 @@ def index(request):
                         context= {'form':form}
                         return render(request,'formulario.html',context)
             if Persona.objects.filter(email=request.POST['email']).exists():
-                messages.error(request, 'Ya ha sido enviado un informe al correo ingresado')
+                messages.error(request, 'El correo que ingresaste ya está registrado')
                 context= {'form':form}
                 return render(request,'formulario.html',context)
         except :
@@ -114,60 +114,7 @@ def index(request):
                     'FactoresCambioEmpleo' : FactoresCambioEmpleo,   
                     'fecha': formatted_datetime,
                 }
-                if(cargo=="Management / CTO"):   tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Management / Head of Infraestructure"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Management / CIO"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Management / IT Manager"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Management / PMO"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Management / Subgerente TI"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Management / Jefe Informática"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Desarrollo / Gerente Desarrollo"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Desarrollo / Gerente Proyectos"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Desarrollo / Lider Técnico"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Desarrollo / Arquitecto Sotware"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Desarrollo / Arquitecto Empresarial"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Desarrollo / Desarrollador Front End"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Desarrollo / Desarrollador Back End"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Desarrollo / Full Stack"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Desarrollo / Desarrollador Mobile"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="'Desarrollo / Consultor QA"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Desarrollo / Diseñador UX/UI"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Desarrollo / Jefe de Proyectos"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Desarrollo / Scrum Master"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Desarrollo / Agile Coach"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Desarrollo / Product Owner"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Desarrollo / Ingeniero Devops"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Desarrollo / Consultor RPA"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Data & Analytics / Arquitecto de Datos "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Data & Analytics / Ingniero de Datos "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Data & Analytics / Manager BI "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Data & Analytics / Consultor BI"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Data & Analytics / Chief Data Officer "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Data & Analytics / Digital Analitics Manager "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Data & Analytics / Data Scientist "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="SAP ERP / Project Manager SAP"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="SAP ERP / Consultor ABAP "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="SAP ERP / Consultor FICO "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="SAP ERP / Consultor MM"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="SAP ERP / Consultor SD "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="SAP ERP / Consultor PIPO"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="SAP ERP / Consultor HR "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="SAP ERP / Consultor SAP otro "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Ciberseguridad / CISO "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Ciberseguridad / Manager Ciberseguridad  "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Ciberseguridad / Ethical Hacker  "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Ciberseguridad / Pentester "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Ciberseguridad / Analista en Ciberseguridad  "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Ciberseguridad / Ingeniero en Ciberseguridad "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Ciberseguridad / Jefe Proyectos Ciberseguridad  "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Ciberseguridad / Arquitecto Ciberseguridad "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Infraestructura / Técnico en Monitoreo "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Infraestructura / Soporte Técnico "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Infraestructura / Jefe de Infraestructura  "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Infraestructura / Ingeniero de Redes "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Infraestructura / Arquitecto de Redes"): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Infraestructura / SysOps "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
-                elif(cargo=="Infraestructura / Administrador de sistemas "): tipo_informe="formularioPersona/pdfs/InformeRenta.pdf"
+                
                 content = template.render(context1)
                 objEmail = EmailMultiAlternatives(
                 'Informe Estudio de Renta',
@@ -175,11 +122,11 @@ def index(request):
                 settings.EMAIL_HOST_USER,
                 [email]
                 )      
-                objEmail.attach_file(tipo_informe)
+                
                 objEmail.attach_alternative(content , 'text/html')
                 objEmail.send()
                 form.save()
-                print(request.POST)
+                
                 messages.success(request, 'Gracias por participar en nuestro Estudio de renta, revisa tu correo.')
                 form=FormularioP()
                 return render(request,'formulario.html',context)  
