@@ -180,7 +180,7 @@ def index(request):
                 objEmail.send()
                 form.save()
                 print(request.POST)
-                messages.success(request, 'Su informe ha sido enviado a su correo exitosamente.')
+                messages.success(request, 'Gracias por participar en nuestro Estudio de renta, revisa tu correo.')
                 form=FormularioP()
                 return render(request,'formulario.html',context)  
             except:  
