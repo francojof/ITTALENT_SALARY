@@ -66,10 +66,6 @@ def index(request):
                 messages.error(request, 'Correo invalido')
                 context= {'form':form}
                 return render(request,'formulario.html',context)
-            if(validar_nombre(nombre)==False):
-                messages.error(request, 'Nombre invalido')
-                context= {'form':form}
-                return render(request,'formulario.html',context)
             if(len(nombre)>60):
                 messages.error(request, 'El nombre ingresado es muy largo ')
                 context= {'form':form}
