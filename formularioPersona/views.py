@@ -90,10 +90,6 @@ def index(request):
                 messages.error(request, 'El correo que ingresaste ya está registrado')
                 context= {'form':form}
                 return render(request,'formulario.html',context)
-            if (rentaLiquida<0):
-                messages.error(request, 'Renta ingresada invalida')
-                context= {'form':form}
-                return render(request,'formulario.html',context)
 
         except :
             messages.error(request, 'Error inesperado, intente mas tarde')
