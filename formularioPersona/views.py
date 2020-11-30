@@ -77,11 +77,7 @@ def index(request):
             if(len(email)>100):
                 messages.error(request, 'El email ingresado es muy largo ')
                 context= {'form':form}
-                return render(request,'formulario.html',context)
-            if (validar_renta(rentaLiquida)==False):
-                messages.error(request,'Renta ingresada invalida')
-                context= {'form':form}
-                return render(request,'formulario.html',context)      
+                return render(request,'formulario.html',context)     
             if(tamano_empresa=='Seleccionar'or pais=='Seleccionar'or edad=='Seleccionar' or estudios=='Seleccionar' or 
                     genero=='Seleccionar' or ingles_hablado=='Seleccionar' or ingles_escrito=='Seleccionar' or actividad=='Seleccionar' or
                     contrato=='Seleccionar' or cargo=='Seleccionar' or experiencia=='Seleccionar' or rentaBono=='Seleccionar' or 
@@ -149,12 +145,5 @@ def es_correo_valido(correo):
     expresion_regular = r"(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])"
     return re.match(expresion_regular, correo) is not None
 def validar_nombre(nombre):
-    expresion =r"^([a-zA-Z ñÑ])+$"
+    expresion =r"^([a-zA-Z ñÑáéíóúÁÉÍÓÚ])+$"
     return re.match(expresion, nombre) is not None
-def validar_renta(rentaLiquida):
-    try:
-        if int(rentaLiquida>0):
-            pass
-        return True
-    except ValueError:
-        return False
