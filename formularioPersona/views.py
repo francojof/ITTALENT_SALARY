@@ -153,7 +153,8 @@ def validar_nombre(nombre):
     return re.match(expresion, nombre) is not None
 def validar_renta(rentaLiquida):
     try:
-        int(rentaLiquida)
+        if int(rentaLiquida>0):
+            pass
         return True
     except ValueError:
         return False
