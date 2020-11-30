@@ -78,10 +78,6 @@ def index(request):
                 messages.error(request, 'El email ingresado es muy largo ')
                 context= {'form':form}
                 return render(request,'formulario.html',context)
-            if(rentaLiquida<0):
-                messages.error(request, 'Renta ingresada invalida ')
-                context= {'form':form}
-                return render(request,'formulario.html',context)
 
             if(tamano_empresa=='Seleccionar'or pais=='Seleccionar'or edad=='Seleccionar' or estudios=='Seleccionar' or 
                     genero=='Seleccionar' or ingles_hablado=='Seleccionar' or ingles_escrito=='Seleccionar' or actividad=='Seleccionar' or
