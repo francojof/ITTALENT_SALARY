@@ -78,7 +78,10 @@ def index(request):
                 messages.error(request, 'El email ingresado es muy largo ')
                 context= {'form':form}
                 return render(request,'formulario.html',context)
-
+            if (validar_renta(rentaLiquida)==False):
+                messages.error(request,'Renta ingresada invalida')
+                context= {'form':form}
+                return render(request,'formulario.html',context)      
             if(tamano_empresa=='Seleccionar'or pais=='Seleccionar'or edad=='Seleccionar' or estudios=='Seleccionar' or 
                     genero=='Seleccionar' or ingles_hablado=='Seleccionar' or ingles_escrito=='Seleccionar' or actividad=='Seleccionar' or
                     contrato=='Seleccionar' or cargo=='Seleccionar' or experiencia=='Seleccionar' or rentaBono=='Seleccionar' or 
@@ -148,3 +151,9 @@ def es_correo_valido(correo):
 def validar_nombre(nombre):
     expresion =r"^([a-zA-Z ñÑ])+$"
     return re.match(expresion, nombre) is not None
+def validar_renta(rentaLiquida):
+    try:
+        int(rentaLiquida)
+        return True
+    except ValueError:
+        return False
