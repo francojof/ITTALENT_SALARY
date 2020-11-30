@@ -58,9 +58,6 @@ def index(request):
                 messages.error(request, 'Debe ingresar un nombre')
                 context= {'form':form}
                 return render(request,'formulario.html',context)
-            if (nombre.replace(" ", "").isalpha()==False):
-                messages.error(request, 'Nombre invalido')
-                context= {'form':form}
             if(email==""):
                 messages.error(request, 'Debe ingresar un email')
                 context= {'form':form}
@@ -148,5 +145,4 @@ def es_correo_valido(correo):
     return re.match(expresion_regular, correo) is not None
 def validar_nombre(nombre):
     expresion =r"^([a-zA-Z ñÑ])+$"
-    
     return re.match(expresion, nombre) is not None
